@@ -1,0 +1,44 @@
+#include <stdio.h>
+
+int main(){
+    int test_case;
+    scanf("%d", &test_case);
+    
+    for(int i = 0; i < test_case; i++){
+        int size_array;
+        scanf("%d", &size_array); 
+        
+        // to get value in the matrix
+        int array[size_array][size_array];
+        for(int j = 0; j < size_array; j++){
+            for(int k = 0; k < size_array; k++){
+                scanf("%d", &array[j][k]);
+            }
+        }
+        
+        // to calculate the sum of values in a column
+        
+        // initialized sum
+        int sum[size_array];
+        for(int j = 0; j < size_array; j++){
+            sum[j] = 0;
+        }
+        for(int j = 0; j < size_array; j++){
+            for(int k = 0; k < size_array; k++){
+                sum[j] = sum[j] + array[k][j];
+            }
+        }
+        
+        printf("Case #%d: ", i + 1);
+        for(int j = 0; j < size_array; j++){
+            printf("%d", sum[j]);
+            if(j < size_array - 1){
+                printf(" ");
+            }
+        }
+        printf("\n");
+    }
+    
+    
+    return 0;
+}
